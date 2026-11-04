@@ -1,13 +1,13 @@
 import express from 'express'
 
-const app = express()
+const myFirstExpressServer = express()
 
-app.get('/', (req, res) => {
+myFirstExpressServer.get('/', (req, res) => {
     res.status(200).send('Hey there')
 })
 
-app.get('/health', (req, res) => {
+myFirstExpressServer.get('/health', (req, res) => {
     res.json({ message: 'hello' }).status(200)
 })
 
-export default app
+export { myFirstExpressServer }

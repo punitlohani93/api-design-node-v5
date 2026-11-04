@@ -1,5 +1,5 @@
-import app from './server.ts'
+import { myFirstExpressServer } from './server.ts'
 
-app.listen(3000, () => {
+myFirstExpressServer.listen(3000, () => {
     console.log('Server running on port: 3000')
 })
