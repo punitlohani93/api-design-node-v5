@@ -1,5 +1,6 @@
 import { myFirstExpressServer } from './server.ts'
+import { env } from '../env.ts'
 
-myFirstExpressServer.listen(3000, () => {
+myFirstExpressServer.listen(env.PORT, () => {
     console.log('Server running on port: 3000')
 })
