@@ -10,4 +10,8 @@ myFirstExpressServer.get('/health', (req, res) => {
     res.json({ message: 'hello' }).status(200)
 })
 
+myFirstExpressServer.post('/cake/:name/:id', (req, res) => {
+    res.json(req.params)
+})
+
 export { myFirstExpressServer }
