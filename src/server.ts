@@ -1,5 +1,9 @@
 import express from 'express'
 
+import auth from './routes/auth.ts'
+import habit from './routes/habit.ts'
+import user from './routes/user.ts'
+
 const myFirstExpressServer = express()
 
 myFirstExpressServer.get('/', (req, res) => {
@@ -13,5 +17,9 @@ myFirstExpressServer.get('/health', (req, res) => {
 myFirstExpressServer.post('/cake/:name/:id', (req, res) => {
     res.json(req.params)
 })
+
+myFirstExpressServer.use('/api/auth', auth)
+myFirstExpressServer.use('/api/habit', habit)
+myFirstExpressServer.use('/api/users', user)
 
 export { myFirstExpressServer }

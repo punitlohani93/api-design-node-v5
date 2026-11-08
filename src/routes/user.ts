@@ -10,6 +10,10 @@ router.get('/:id', (req, res) => {
     res.json({ message: `got user with id: ${req.params.id}` })
 })
 
+router.post('/create', (req, res) => {
+    res.json({ message: `user created` })
+})
+
 router.put('/:id', (req, res) => {
     res.json({ message: `user with id: ${req.params.id} updated` })
 })
