@@ -1,11 +1,22 @@
 import express from 'express'
+import cors from 'cors'
+import helmet from 'helmet'
+import morgan from 'morgan'
 
 import auth from './routes/auth.ts'
 import habit from './routes/habit.ts'
 import user from './routes/user.ts'
+import { isTest } from '../env.ts'
 
 const myFirstExpressServer = express()
 
+myFirstExpressServer.use(helmet())
+myFirstExpressServer.use(cors())
+myFirstExpressServer.use(express.json())
+myFirstExpressServer.use(express.urlencoded({ extended: true }))
+myFirstExpressServer.use(morgan('dev', { 
+    skip: () => isTest(),
+ }))
 myFirstExpressServer.get('/', (req, res) => {
     res.status(200).send('Hey there')
 })
