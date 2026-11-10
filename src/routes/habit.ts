@@ -1,4 +1,11 @@
 import { Router } from "express";
+import { z } from 'zod'
+
+import { validateBody } from "../middleware/validation.ts"
+
+const createHabitSchema = z.object({
+    name: z.string(),
+})
 
 const router = Router()
 
@@ -10,7 +17,7 @@ router.get('/:id', (req, res) => {
     res.json({ message: `got one habit with id: ${req.params.id}` })
 })
 
-router.post('/', (req, res) => {
+router.post('/', validateBody(createHabitSchema), (req, res) => {
     res.json({ message: 'created new habit' }).status(201)
 })
 
