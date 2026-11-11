@@ -1,10 +1,14 @@
 import { Router } from "express";
 import { z } from 'zod'
 
-import { validateBody } from "../middleware/validation.ts"
+import { validateBody, validateParams } from "../middleware/validation.ts"
 
 const createHabitSchema = z.object({
     name: z.string(),
+})
+
+const completeParamsSchema = z.object({
+    id: z.string()
 })
 
 const router = Router()
@@ -25,7 +29,7 @@ router.delete('/:id', (req, res) => {
     res.json({ message: `deleted habit with id: ${req.params.id}` }).status(204)
 })
 
-router.post('/:id/complete', (req, res) => {
+router.post('/:id/complete', validateBody(createHabitSchema), validateParams(completeParamsSchema), (req, res) => {
     res.json({ message: `completed habit id: ${req.params.id}` }).status(201)
 })
 
