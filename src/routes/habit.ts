@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-    res.json({ message: `got one habit with id: ${req.params.id}` })
+    res.json({ message: `got habit with id: ${req.params.id}` })
 })
 
 router.post('/', validateBody(createHabitSchema), (req, res) => {
@@ -30,7 +30,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.post('/:id/complete', validateBody(createHabitSchema), validateParams(completeParamsSchema), (req, res) => {
-    res.json({ message: `completed habit id: ${req.params.id}` }).status(201)
+    res.json({ message: `completed habit with id: ${req.params.id}` }).status(201)
 })
 
 export default router
