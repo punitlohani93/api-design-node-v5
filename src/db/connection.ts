@@ -18,6 +18,6 @@ if (isProd()) {
     client = remember('dbPool', () => createPool())
 }
 
-const db = drizzle({client, schema})
+export const db = drizzle({client, schema})
 
 export default db
