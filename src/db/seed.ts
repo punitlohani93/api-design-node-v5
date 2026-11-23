@@ -1,6 +1,6 @@
 import { db } from './connection.ts'
 import { users, habits, entries, tags, habitTags } from './schema.ts'
-import { hashPassword } from '../utils/password.ts'
+import { hashPassword } from '../utils/passwords.ts'
 
 async function seed() {
   console.log('🌱 Starting database seed...')
